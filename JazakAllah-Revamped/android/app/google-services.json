@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "285940506831",
+    "project_id": "salahapp-44b89",
+    "storage_bucket": "salahapp-44b89.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285940506831:android:ae856bc23980d7850117ba",
+        "android_client_info": {
+          "package_name": "com.jazakallah.salah_time"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgDv6GKhcdsnPcAQ8WeOdYN4lDvck3v7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285940506831:android:09a40d5584da60880117ba",
+        "android_client_info": {
+          "package_name": "com.raptr42.salah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgDv6GKhcdsnPcAQ8WeOdYN4lDvck3v7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

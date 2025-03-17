@@ -1,0 +1,2 @@
+D:/App/JazakAllah-Revamped/android/app/.cxx/RelWithDebInfo/502z1822/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/App/JazakAllah-Revamped/android/app/.cxx/RelWithDebInfo/502z1822/arm64-v8a/CMakeFiles/rebuild_cache.dir
