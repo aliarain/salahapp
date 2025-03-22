@@ -38,6 +38,54 @@ CREATE TABLE `admins` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE `masjids` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `latitude` decimal(10,7) NOT NULL,
+  `longitude` decimal(10,7) NOT NULL,
+  `location` point NOT NULL,
+  `contact_info` json DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timezone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT 'UTC',
+  `calculation_method` int(11) DEFAULT 1,
+  `asr_method` int(11) DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  SPATIAL KEY `masjids_location_index` (`location`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `prayer_times` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `masjid_id` bigint(20) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `fajr` time DEFAULT NULL,
+  `sunrise` time DEFAULT NULL,
+  `dhuhr` time DEFAULT NULL,
+  `asr` time DEFAULT NULL,
+  `maghrib` time DEFAULT NULL,
+  `isha` time DEFAULT NULL,
+  `prayer_data` json DEFAULT NULL,
+  `source` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'calculated',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prayer_times_masjid_id_date_index` (`masjid_id`,`date`),
+  CONSTRAINT `prayer_times_masjid_id_foreign` FOREIGN KEY (`masjid_id`) REFERENCES `masjids` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `masjids` (`name`, `address`, `city`, `country`, `latitude`, `longitude`, `location`, `contact_info`, `timezone`, `calculation_method`, `asr_method`, `created_at`, `updated_at`)
+VALUES
+('Masjid Al-Noor', '123 Main Street', 'New York', 'USA', 40.7128, -74.0060, POINT(-74.0060, 40.7128),
+ '{"phone": "+1-555-123-4567", "email": "info@masjidalnoor.org", "website": "www.masjidalnoor.org"}',
+ 'America/New_York', 2, 1, NOW(), NOW()),
+
+('Masjid Al-Haram', 'Makkah', 'Makkah', 'Saudi Arabia', 21.4225, 39.8262, POINT(39.8262, 21.4225),
+ '{"phone": "+966-12-345-6789", "email": "info@masjidalharam.org"}',
+ 'Asia/Riyadh', 3, 2, NOW(), NOW());
 --
 -- Dumping data for table `admins`
 --

@@ -21,6 +21,9 @@ class Masjid extends Model
         'longitude',
         'contact_info',
         'image',
+        'timezone',
+        'calculation_method',
+        'asr_method',
     ];
 
     /**
@@ -33,7 +36,7 @@ class Masjid extends Model
         'latitude' => 'float',
         'longitude' => 'float',
     ];
-
+    protected $jsonEncodingOptions = JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES;
     /**
      * Get the prayer times for the masjid.
      */

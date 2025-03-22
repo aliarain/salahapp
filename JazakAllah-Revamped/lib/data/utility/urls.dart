@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class Urls {
   Urls._();
 
-  static String baseUrl = dotenv.env['base_url'].toString();
+  static String baseUrl = 'https://api.yallasalah.co.uk/api';
   static String userSignUp = '$baseUrl/users/register';
   static String signIn = '$baseUrl/users/login';
   static String sendOTP = '$baseUrl/users/send-otp';
@@ -17,25 +17,23 @@ class Urls {
   static String liveLink = '$baseUrl/link';
 
   // Masjid API Routes
-  static String getAllMasjids = '$baseUrl/api/masjids';
-  static String addMasjid = '$baseUrl/api/masjids';
-  static String getNearbyMasjids = '$baseUrl/api/masjids/nearby';
-  static String scanTimetable = '$baseUrl/api/scan-timetable';
+  static String getAllMasjids = '$baseUrl/masjids';
+  static String addMasjid = '$baseUrl/masjids';
+  static String getNearbyMasjids = '$baseUrl/masjids/nearby';
+  static String scanTimetable = '$baseUrl/scan-timetable';
 
   // Prayer Times API Routes
-  static String getAllPrayerTimes = '$baseUrl/api/prayer-times';
-  static String addPrayerTimes = '$baseUrl/api/prayer-times/add';
+  static String getAllPrayerTimes = '$baseUrl/prayer-times';
+  static String addPrayerTimes = '$baseUrl/prayer-times/add';
 
-  static String getMasjid(int id) => '$baseUrl/api/masjids/$id';
-  static String updateMasjid(int id) => '$baseUrl/api/masjids/update/$id';
-  static String deleteMasjid(int id) => '$baseUrl/api/masjids/delete/$id';
+  static String getMasjid(int id) => '$baseUrl/masjids/$id';
+  static String updateMasjid(int id) => '$baseUrl/masjids/update/$id';
+  static String deleteMasjid(int id) => '$baseUrl/masjids/delete/$id';
   static String getMasjidPrayerTimes(int masjidId) =>
-      '$baseUrl/api/masjids/$masjidId/prayer-times';
-  static String getPrayerTime(int id) => '$baseUrl/api/prayer-times/find/$id';
-  static String updatePrayerTime(int id) =>
-      '$baseUrl/api/prayer-times/update/$id';
-  static String deletePrayerTime(int id) =>
-      '$baseUrl/api/prayer-times/delete/$id';
+      '$baseUrl/masjids/$masjidId/prayer-times';
+  static String getPrayerTime(int id) => '$baseUrl/prayer-times/find/$id';
+  static String updatePrayerTime(int id) => '$baseUrl/prayer-times/update/$id';
+  static String deletePrayerTime(int id) => '$baseUrl/prayer-times/delete/$id';
 
   static String getCategoryList(String categoryURL) =>
       '$baseUrl/$categoryURL/all';
